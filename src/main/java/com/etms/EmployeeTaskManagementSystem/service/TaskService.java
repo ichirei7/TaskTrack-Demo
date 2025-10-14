@@ -26,9 +26,9 @@ public class TaskService {
     }
     
     public Task createTask(Task task) {
-        if (task.getAssignedTo() != null && isDemoUser(task.getAssignedTo())) {
-            task.setDemoData(true);
-        }
+//        if (task.getAssignedTo() != null && isDemoUser(task.getAssignedTo())) {
+//            task.setDemoData(true);
+//        }
         // If the project itself is a demo project, mark this task too
         if (task.getProject() != null && task.getProject().isDemoData()) {
             task.setDemoData(true);
@@ -67,7 +67,7 @@ public class TaskService {
 
         // Mark as demo only if either already demo or edited by demo user
         if (isAlreadyDemo 
-            || (task.getAssignedTo() != null && isDemoUser(task.getAssignedTo())) 
+//            || (task.getAssignedTo() != null && isDemoUser(task.getAssignedTo())) 
             || (task.getProject() != null && task.getProject().isDemoData())) {
             task.setDemoData(true);
         }
